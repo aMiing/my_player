@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<style>
+  .imgCon{
+    width:150px;
+    height:150px;
+    box-shadow: 2px 2px 8px #6bf;
+
+    animation:changeShadow 5s infinite;
+    /*Safari 和 Chrome:*/
+    -webkit-animation:changeShadow 3s infinite;
+    animation-direction:alternate;
+
+    border-radius: 75px;
+    background: url('../imgs/test.jpg') no-repeat;
+    background-size: auto 100%;
+    display: none;
+    position: absolute;
+    left:45%;
+    top:45%;
+  }
+  @keyframes changeShadow
+  {
+    from {box-shadow: 2px 2px 8px #ff0000;}
+    to {box-shadow: 2px 2px 8px #0000ff;}
+  }
+
+  /*Safari 和 Chrome:*/
+  @-webkit-keyframes changeShadow
+  {
+    from {box-shadow: 2px 2px 8px #ff0000;}
+    to {box-shadow: 2px 2px 8px #0000ff;}
+  }
+</style>
+<body>
+  <div class="imgCon"></div>
+</body>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script>
+    console.log('我想写个这样的小程序：\n\
+      1.背景部分是自由碰撞的小球，\n\
+      球里面放照片，\n\
+      碰撞之后随机切换图片;\n\
+      2.图片边框渐变\n\
+      3.弹窗问题小游戏');
+</script>
+<script>
+  $(function(){
+    console.log(Math.random(-5,5));
+    $('.imgCon').show(1500);
+      var Left = $('.imgCon').offsetLeft;
+      console.log($('.imgCon').position().left);
+      //console.log($('.imgCon').offsetLeft);
+      let dir = Math.random()*Math.PI;
+      let posx = 5*Math.cos(Math.random()*2*Math.PI);
+      let posy = 5*Math.sin(Math.random()*2*Math.PI);
+      setTimeout(function() {}, 1500);
+     /* setInterval(function(){
+         $('.imgCon').css({'left':$('.imgCon').position().left+posx+'px','top':$('.imgCon').position().top+posy+'px'}); 
+       },200);
+     */
+      // $('.imgCon').animate({
+      //   "left": $('.imgCon').position().left+posx+'px',
+      //   "top": $('.imgCon').position().top+posx+'px',
+      //   },
+      //   6000, function() {
+      //   /* stuff to do after animation is complete */
+      // });
+  })
+</script>
+</html>

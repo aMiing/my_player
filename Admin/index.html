@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员首页</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/fonts/glyphicons-halflings-regular.ttf">
+<style>
+	.contain-box{
+		margin:0 2%;
+	}
+	td>button{
+		margin-right: 3%;
+	}
+	#tab2>table{
+		color:#666;
+	}
+	#tab3>form{
+		margin:0 25%;
+		border:0px solid #ccc;
+		border-radius: 5px;
+		padding: 20px 40px;
+		text-align: center;
+	}
+	form>div{
+		margin:0 0 3px;
+	}
+	label{
+		text-align: left;
+	}
+	label>span{
+		color:red;
+	}
+	form>div>span{
+		color:#999;
+		font-size: 12px;
+	}
+	.form-control,.input-group{
+		padding:3px 12px;
+	}
+</style>
+<body>
+	<div class="contain-box">
+		<div class="tabbable tabs-left">
+		  <ul class="nav nav-tabs">
+		    <li><a href="#tab1" data-toggle="tab">已上架活动</a></li>
+		    <li class=""><a href="#tab2" data-toggle="tab">已下架活动</a></li>
+		    <li class="active"><a href="#tab3" data-toggle="tab">新增活动</a></li>
+		    <li><a href="#tab4" data-toggle="tab">用户管理</a></li>
+		    <li><a href="#tab5" data-toggle="tab">被禁用户</a></li>
+		  </ul>
+		  <div class="tab-content">
+		    <div class="tab-pane" id="tab1">
+		    	<table class="table table-hover">
+		        	<tr>
+		        		<th>活动id</th>
+		        		<th>活动类型</th>
+		        		<th>参与人数</th>
+		        		<th>发布时间</th>
+		        		<th>开奖日期</th>
+		        		<th>操作</th>
+		        	</tr>
+				  <tr v-for="action in actives">
+				  	<td>1</td>
+				  	<td>抽奖</td>
+				  	<td>20</td>
+				  	<td>2018.2.12</td>
+				  	<td>2018.5.15</td>
+				  	<td><button class="btn btn-info">编辑</button><button class="btn btn-danger">下架</button></td>
+				  </tr>
+				</table>
+		    </div>
+		    <div class="tab-pane" id="tab2">
+		      <table class="table table-hover">
+		        	<tr>
+		        		<th>活动id</th>
+		        		<th>活动标题</th>
+		        		<th>详细介绍</th>
+		        		<th>发布时间</th>
+		        		<th>开奖日期</th>
+		        		<th>大图地址</th>
+		        		<th>缩略图地址</th>
+		        		<th>操作</th>
+		        	</tr>
+				  <tr v-for="item in actives">
+				  	<td>1</td>
+				  	<td>{{item.name}}</td>
+				  	<td>{{item.detailText}}</td>
+				  	<td>{{item.begainTime}}</td>
+				  	<td>{{item.stopTime}}</td>
+				  	<td></td>
+				  	<td></td>
+				  	<td><button class="btn btn-success">上架</button><button class="btn btn-danger">删除</button></td>
+				  </tr>
+				</table>
+		    </div>
+		    <div class="tab-pane active" id="tab3">
+		      <form class="form col-sm-6">
+				<div class="form-group col-sm-12">
+					<label class="col-sm-3">活动名称 <span> * </span></label>
+					<input class="form-control col-sm-12" type="text" placeholder="请输入活动名称" v-model="newAction.name">
+					<span class="tip col-sm-12">(将不会在用户界面展示，仅用于活动标记)</span>
+				</div>
+				<div class="form-group col-sm-12">
+					<label class="col-sm-3">奖品标题 <span> * </span></label>
+					<input class="form-control col-sm-8" type="text" placeholder="请输入奖品标题"  v-model="newAction.title">
+					
+				</div>
+				<div class="form-group col-sm-12">
+					<label class="col-sm-3">详细介绍 <span> * </span></label>
+					<textarea class="form-control col-sm-8"  name="" id="" cols="40" rows="2" placeholder="请输入详细介绍" v-model="newAction.detailText"></textarea>
+				</div>
+				<div class="form-group col-sm-12">
+					<label class="col-sm-3">奖品数量 <span> * </span></label>
+					<input class="form-control col-sm-8" type="number" placeholder="请输入奖品标题"  v-model="newAction.priceNum">
+				</div>
+				<div class="form-group col-sm-12">
+					<label class="col-sm-4">大图地址<br><span>(请使用750*360px的图片)</span> <span> * </span></label>
+					<input class="col-sm-8" type="input" placeholder="请粘贴图片url">
+				</div>
+				<div class="form-group col-sm-12">
+					<label class="col-sm-4">缩略图地址<br> <span>(请使用251*227px的白底/透明底图片) * </span></label>
+					<input class="col-sm-8" type="input" placeholder="请粘贴图片url">
+				</div>
+				<div class="input-group">
+					<label class="input-group-addon">机机器人数量</label>
+					<input class="form-control" type="number" placeholder="请输入机器人数量" value="0"  v-model="newAction.autoNum">
+					<label class="input-group-addon">个</label>
+					<label class="input-group-addon">开奖时间</label>
+					<input class="form-control" type="date" placeholder="选择开奖日期" v-model="newAction.stopTime" >
+				</div>
+				<div class="input-group">
+					<label class="input-group-addon">渠道名</label>
+					<input class="form-control" type="text" placeholder="输入渠道名" v-model="newAction.channalName" >
+					<label class="input-group-addon" style="padding:0;"><button class="btn btn-info">生成渠道码</button></label>
+				</div>
+				<div class="input-group">
+					<label class="input-group-addon">渠道码</label>
+					<input class="form-control" type="text" placeholder="">
+					
+				</div>
+				<div class="input-group" style="width:100%; text-align: center;margin-top: 20px;">
+					<button class="btn btn-info btn-lg" @click="showIt()">提交数据并上架该活动</button>
+				</div>
+			  </form>
+		    </div>
+		    <div class="tab-pane" id="tab4">
+		        <table class="table table-hover">
+		        	<tr>
+		        		<th>用户id</th>
+		        		<th>手机号</th>
+		        		<th>渠道来源</th>
+		        		<th>参与活动id</th>
+		        		<th>是否中奖</th>
+		        		<th>操作</th>
+		        	</tr>
+				  <tr>
+				  	<td>1</td>
+				  	<td>12345678910</td>
+				  	<td>网易严选</td>
+				  	<td>008</td>
+				  	<td>1</td>
+				  	<td><button class="btn btn-warning">禁用</button><button class="btn btn-danger">隐藏</button></td>
+				  </tr>
+				</table>
+		    </div>
+		    <div class="tab-pane" id="tab5">
+		        <table class="table table-hover">
+		        	<tr>
+		        		<th>用户id</th>
+		        		<th>手机号</th>
+		        		<th>渠道来源</th>
+		        		<th>参与活动id</th>
+		        		<th>是否中奖</th>
+		        		<th>操作</th>
+		        	</tr>
+				  <tr>
+				  	<td>1</td>
+				  	<td>12345678910</td>
+				  	<td>网易严选</td>
+				  	<td>008</td>
+				  	<td>1</td>
+				  	<td><button class="btn btn-info">恢复</button><button class="btn btn-danger">删除</button></td>
+				  </tr>
+				</table>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script src="../VueJs/Vue-resource.js"></script>
+<script>
+	new Vue({
+		el:'.contain-box',
+		data:{
+			actives:'',
+			newAction:{
+				name:'天天抽苹果',
+				title:'',
+				detailText:'',
+				priceNum:20,
+				imglg:'',
+				imgsm:'',
+				autoNum:0,
+				beginTime:'',
+				stopTime:'',
+				channalName:''
+			}
+		},
+		created:function(){
+			var url = '';
+			this.$http.jsonp(url).then(function(res){
+				this.actives = res.body.data;
+			},function(res){
+				alert("z"+res.status);
+			});
+		},
+		methods:{
+			showIt:function(){
+				var r = confirm('确定发布？');
+				var _self = this;
+				if(r==true){
+					var url = '';
+					//插入到data里，热刷新
+					_self.actives.unshift(_self.newAction);
+					//数据库更新
+					_self.$http.jsonp(url,{}).then(function(res){
+						this.actives = res.body.data;
+					},function(res){
+						alert("z"+res.status);
+					});
+					/*
+					_self.actives.unshift(_self.newAction);
+					console.log(_self.actives);*/
+				}else{
+					alert('0');
+				}
+
+				
+
+			}
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>参与抽奖</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/fonts/glyphicons-halflings-regular.ttf">
+<style>
+	.navbar-text{
+		margin:10px 0;
+		font-size: 18px;
+	}
+	.thumbnail{
+		border:0;
+		text-align: center;
+	}
+	.progress{
+		height:12px;
+		border-radius: 6px;
+	}
+
+	fieldset{
+		padding:20px 0;
+		border:2px solid orange;
+		text-align: center;
+	}
+	.lineText{
+	    height: 1px;
+	    border-top: 1px solid #ddd;
+	    text-align: center;
+	    margin:30px 0;
+	}
+	.lineText>span{
+	    position: relative;
+	    top: -10px;
+	    background: #fff;
+	    padding: 0 10px;
+	}
+	.footer{
+		position: ;
+		bottom:;
+	}
+	.footer>p>a{
+		width:45%;
+		margin:0 2%;
+	}
+	.alert-dialog{
+		margin-top: 30%;
+		height:70%;
+	}
+	.modal-content{
+		background: url('../imgs/modal-bg.png') no-repeat;
+		background-size: 100%;
+		height:100%;
+		border:0;
+		box-shadow: 0 0 0 ;
+	}
+	.close{
+		opacity: 1;
+		margin:-28px -30px 0 0 !important;
+	}
+	.modal-header,.modal-body,.modal-footer{
+		border:0;
+		padding:10px 40px;
+		text-align: center;
+	}
+	.modal-header{
+		padding:30px;
+	}
+	.modal-footer{
+		text-align: center;
+	}
+	.shareBtn{
+		width:50%;
+	}
+</style>
+<style>
+	
+</style>
+<body>
+<nav class="navbar navbar-default">
+  	<a class="navbar-brand" href="./index.html">
+        <i class="glyphicon glyphicon-menu-left"></i>
+    </a>
+  <div class="container-fluid" style="text-align: center;">
+  	<p class="navbar-text"><span style="margin-left:-35px;">参与抽奖</span></p>
+    
+  </div>
+</nav>
+<div class="container">
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="../imgs/goods-sm.png" alt="...">
+	      <div class="caption">
+	        <h4>iPhone7 plus 64G 玫瑰金</h4>
+	        <p>详细介绍文字部分详细介绍文字部分详细介绍文字</p>
+
+			<div class="lineText"><span>剩余<strong>25</strong>人次开奖</span></div>
+
+			<div class="progress">
+			  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+			    <span class="sr-only">60% Complete (warning)</span>
+			  </div>
+			</div>
+			  <div style="font-size: 12px;color:#bbb;margin:-12px 0 15px;">
+			  	<span>共需要40人次，已参与15人次，还差25人次开奖</span>
+			  </div>
+	
+	      </div>
+	    </div>
+	    
+	<div class="footer">
+	    <p>
+	    	<a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#myModal">召唤小伙伴一起来</a> 
+	    	<a href="#" class="btn btn-warning" role="button">立即参与抽奖</a>
+	    </p>
+	</div>
+
+	
+	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog alert-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	<img src="../imgs/dialog-close.png" alt="close" width="70" aria-hidden="true">
+        </button>
+        <p><h3 style="text-align: center;margin-top:35px;">分享链接</h3></p>
+      </div>
+      <div class="modal-body">
+        <h4>复制链接</h4>
+        <p class="shareUrl"><span>http://www.cnblogs.com/amingxiansen/</span></p>
+      </div>
+      <div class="modal-footer">
+      	<p>复制链接并分享</p>
+        <button type="button" class="btn btn-lg btn-danger shareBtn">复制链接</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	  </div>
+	</div>
+
+
+	
+
+	<p>这里像阿彬的脑袋一样--进水了~</p>
+</div>
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+</html>

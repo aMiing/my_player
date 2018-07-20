@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>参与抽奖</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/fonts/glyphicons-halflings-regular.ttf">
+<style>
+	body{
+		background:;
+		font-family: 'PingFangSC Light','华文细黑','楷体';
+	}
+	.main-contain{
+		position: absolute;
+		width:100%;
+		height:94%;
+		overflow: scroll;
+	}
+	.navbar-text{
+		margin:10px 0;
+		font-size: 18px;
+	}
+	.thumbnail{
+		border:0;
+		text-align: center;
+		margin:0;
+	}
+	.lineText{
+	    height: 1px;
+	    border-top: 1px solid #ddd;
+	    text-align: center;
+	    margin:30px 0;
+	}
+	.lineText>span{
+	    position: relative;
+	    top: -10px;
+	    background: #fff;
+	    padding: 0 10px;
+	}
+	.footer{
+		width:100%;
+		height:41px;
+		position: fixed;
+		border-top:1px solid red;
+		bottom:0;
+		background-color: white;
+	}
+	.footer>p{
+		margin:0;
+	}
+	.footer>p>a{
+		width:49.45%;
+		margin:0;
+		padding:9px 12px;
+		border-radius: 0;
+	}
+	.btn-white{
+		color: #333;
+	    background-color: #fff;
+	    border-color: #fff;
+	}
+	.alert-dialog{
+		margin-top: 30%;
+		height:400px;
+	}
+	.modal-content{
+		background: #fff;
+		background-size: 80%;
+		height:80%;
+		border:0;
+		border-radius: 0;
+		box-shadow: 0 0 0 ;
+	}
+	.close{
+		opacity: 1;
+		margin:-6px -17px 0 0 !important;
+	}
+	.modal-header,.modal-body,.modal-footer{
+		border:0;
+		padding:10px 20px;
+		text-align: center;
+	}
+	.modal-header{
+		padding:;
+	}
+	.modal-body{
+		padding:10px 0;
+		width:80%;
+		margin:0 10%;
+		height:120px;
+	}
+	#share-url{
+		border:1px solid #ddd;
+		width:80%;
+		padding-left: 0;
+		text-align: center;
+	}
+	.modal-body>div>input{
+		text-align: center;
+	}
+	.modal-footer{
+		text-align: center;
+		padding-top: 5%;
+	}
+	.shareBtn{
+		width:50%;
+	}
+	.icn{
+		border:1px solid #ccc;
+		width:32px;
+		height:32px;
+		border-radius: 16px;
+	}
+	td{
+		color:#666;
+		vertical-align: middle !important;
+	}
+	.depart{
+		width:100%;
+		height:10px;
+		background-color: #f4f4f4;
+	}
+	.btn:hover{
+		outline: 0 !important;
+    	outline-offset: 0 !important;
+	}
+	.btn:active{
+		outline: 0 !important;
+    	outline-offset: 0 !important;
+	}
+	.btn:focus{
+		outline: 0 !important;
+    	outline-offset: 0 !important;
+	}
+</style>
+<style>
+	
+</style>
+<body>
+<div class="main-contain">
+	<nav class="navbar navbar-default">
+	  	<a class="navbar-brand" href="./index.html">
+	        <i class="glyphicon glyphicon-menu-left"></i>
+	    </a>
+	  <div class="container-fluid" style="text-align: center;">
+	  	<p class="navbar-text"><span style="margin-left:-35px;">参与抽奖</span></p>
+	    
+	  </div>
+	</nav>
+	<div class="container">
+		<div class="row">
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="../imgs/detail.png" alt="...">
+			</div>
+		  </div>
+		</div>
+	</div>
+	<div class="depart"></div>
+	<div class="container" id="main">
+		<div class="row">
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <div class="caption">
+		        <h4>iPhone7 plus 64G 玫瑰金</h4>
+		        <p>详细介绍文字部分详细介绍文字部分详细介绍文字</p>
+
+				  <div class="lineText"><span>5月 <strong>28</strong> 日 <strong>20:00</strong> 开奖</span></div>
+				  <div style="font-size: 12px;color:#888;margin:-12px 0 15px;">
+				  	<span>共需：40人次 | 已参与15人次</span>
+				  </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<div class="tableContain" style="padding:0 25px;">
+			<table class="table">
+				<tbody>
+					<tr v-for="people in customs">
+						<td><img class="icn" src="../imgs/default.png" ></img>{{people.phone}}</td>
+						<td style="text-align: right;">{{people.date}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+
+		
+	
+		<!-- 分享l -->
+	<div class="modal fade" id="my-share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog alert-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        		<img src="../imgs/dialog-close.png" alt="close" width="45" aria-hidden="true">
+	        </button>
+	        <p><h3 style="text-align: center;margin-top:35px;">分享链接</h3></p>
+	      </div>
+	      <div class="modal-body" id="share-url">
+	        <p class="shareUrl"><span>http://www.cnblogs.com/amingxiansen/</span></p>
+	      </div>
+	      <div class="modal-footer">
+	      	<p>请复制链接并分享</p>
+	        <button type="button" class="btn btn-lg btn-danger shareBtn">复制链接</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+		<!-- 输入手机 -->
+	<div class="modal fade" id="my-phone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog alert-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        		<img src="../imgs/dialog-close.png" alt="close" width="45" aria-hidden="true">
+	        </button>
+	        <p><h3 style="text-align: center;margin-top:35px;">领取奖品</h3></p>
+	      </div>
+	      <div class="modal-body">
+	      	<div class="form-group">
+				<span>收件人:</span>
+		        <input type="text" name="recipient" onfocus="focusOn();" onblur="blurOn(this);">
+	        </div>
+	        <div class="form-group">
+		        <span>手机号:</span>
+		        <input type="number" name="phone" onfocus="focusOn();" onblur="blurOn(this);">
+		    </div>
+		    <div class="form-group">
+		        <span>收货地址:</span>
+		        <input type="text" name="address" onfocus="focusOn();" onblur="blurOn(this);">
+		    </div>
+	      </div>
+	      <div class="modal-footer">
+	      	<p><span>手机号用于接收中奖信息</span></p>
+	        <button type="button" class="btn btn-lg btn-danger shareBtn">立即领取</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+		<!-- 领取成功 -->
+	<div class="modal fade" id="my-join" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog alert-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        		<img src="../imgs/dialog-close.png" alt="close" width="45" aria-hidden="true">
+	        </button>
+	        <p><h3 style="text-align: center;margin-top:35px;">参与成功</h3></p>
+	      </div>
+	      <div class="modal-body">
+	        <img src="../imgs/gift.png" alt="" width="100%" height="130%">
+	      </div>
+	      <div class="modal-footer">
+	      	<p><br></p>
+	        <button type="button" class="btn btn-lg btn-danger shareBtn">立即领取</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</div>
+
+	<div class="footer">
+	    <p>
+	    	<a href="#" class="btn btn-white" role="button" data-toggle="modal" data-target="#my-share">召唤小伙伴一起来</a> 
+	    	<a href="#" class="btn btn-danger" role="button" data-toggle="modal" data-target="#my-phone">立即参与抽奖</a>
+	    </p>
+	</div>
+
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script>
+	new Vue({
+		el:'#main',
+		data:{
+			customs:[{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			},{
+				phone:'153****3433',
+				date:'10分钟前'
+			}
+			]
+		}
+	})
+</script>
+</html>

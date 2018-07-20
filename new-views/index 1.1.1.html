@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>乐器分享</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<style>
+	body{
+		background:;
+		font-family: 'PingFangSC Light','华文细黑','楷体';
+	}
+	.badge{
+		background-color: red;
+	}
+	.floatBtn:hover{
+		right:0px;
+	}
+	.container{
+		padding-left: 10px;
+		margin: auto 0;
+	}
+	.main-contain{
+		position: absolute;
+		width:100%;
+		height:94%;
+		overflow: scroll;
+	}
+	.btn{
+		height: 34px;
+		border: 0px;
+		border-radius: 15px;
+	}
+	.btn-default{
+		color:#777;
+		opacity: 0.7;
+		background: #e6e6e6;
+	}
+	
+	.form-control{
+		background: #e6e6e6;
+		opacity: 0.7;
+		border-radius: 15px;
+		border: none;
+		font-size: 12px;
+		padding: 0;
+		box-shadow: none;
+	}
+	.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+		color:red;
+		background: none;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-bottom-color:red;
+	}
+	.nav-tabs{
+		font-weight:bold; 
+		font-size: 18px;
+	}
+	.nav>li>a{
+		padding: 10px 20px 0 20px;
+	}
+	a{
+		color:#777;
+	}
+	.main{
+		width:100%;
+		height:100%;
+	}
+	h1{
+		font-size: 20px;
+		font-weight: bold;
+		padding-left: 10px;
+	}
+	.videosItem{
+		margin:0;
+		padding:0;
+	}
+	.videosItem>div{
+		padding:0;
+	}
+	video.videos-sm{
+		width:100%;
+		margin:auto 0;
+	}
+	.textShow{
+		padding:5px 15px;
+	}
+	img.img-circle{
+		width: 30px;
+		height: 30px;
+	}
+	h4{
+		text-align: center;
+	}
+	span{
+		font-size: 12px;
+	}
+	span.right{
+		float: right;
+	}
+	.depart{
+		width:100%;
+		height:10px;
+		background-color: #f4f4f4;
+	}
+	.navbar-nav>li{
+		float: left;
+	}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+		color: none;
+		background: none;
+	}
+	.nav>li>a{
+		font-size: 15px;
+	}
+	img.activeicon1{
+		width:40px; 
+		height:20px;
+	}
+	img.activeicon2{
+		width:40px; 
+		height:20px;
+	}
+	img.add{
+		width: 40px;
+	}
+	img.smicon1{
+		width: 30px;
+		height: 30px;
+	}
+	img.smicon2{
+		width: 40px;
+		height: 30px;
+	}
+	img.smicon3{
+		height: 30px;
+	}
+	/* 新增样式 */
+	.footer{
+		width:100%;
+		height:41px;
+		position: fixed;
+		border-top:1px solid red;
+		bottom:0;
+		background-color: white;
+	}
+	.footer>p{
+		margin:0;
+	}
+	.footer>p>a{
+		width:100%;
+		height:6%;
+		margin:0;
+		padding:9px 12px;
+		border-radius: 0;
+	}
+	.bottom-space{
+		width:100%;
+		text-align: center;
+	}
+</style>
+<body>
+	<!-- 搜索-分页 -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12"><br></div>
+			<div class="col-md-3 col-xs-1"></div>
+
+			<div class="col-md-6 col-xs-10">
+				<div class="input-group">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><img src="../imgs/newrsearch.png" style="width:14px;" alt=""></button>
+					</span>
+					<input type="text" class="form-control" placeholder="每个人都是音乐家">
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-sm-2 col-sm-1"></div>
+					<div class="col-md-8 col-sm-8 col-sm-10">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">推荐</a></li>
+							<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">最新</a></li>
+							<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">最热</a></li>
+						</ul>
+					</div>
+					<div class="col-md-2 col-sm-2 col-sm-1"></div>
+				</div>
+			</div>
+
+			<div class="col-md-3 col-xs-1"></div>
+		</div>
+	</div>
+
+	<!-- 中间主要内容 -->
+	<div class="main">
+		<h1>热门视频</h1>
+		<div class="videosItem col-xs-12 col-sm-12 col-md-3 col-lg-3"  v-for="item in videos">
+			<div>
+				<a :href="item.url">
+					<!-- <img :src="item.img" alt="奖品" class="videosImg-sm"> -->
+					<video src="item.video" controls="controls" class="videos-sm"></video>
+				</a>
+				<div class="textShow">
+					<p style="margin:0;line-height: 28px;"><strong>{{item.title}}</strong></p>
+					<span class="headlineTime" style="color:#666;">
+						<img src="../imgs/head.jpg" alt="" class="img-circle"> 小仙女
+					</span>
+					<!-- <span class="glyphicon glyphicon-comment " aria-hidden="true">300</span>&nbsp
+					<span class="glyphicon glyphicon-heart" aria-hidden="true">456</span>&nbsp
+					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">567</span> -->
+					<span class="right" ><img class="activeicon1" src="../imgs/留言.png" alt="">300</span>
+					<span class="right"><img class="activeicon2" src="../imgs/喜欢.png" alt="">456</span>
+					<span class="right"><img class="activeicon2" src="../imgs/点赞.png" alt="">567</span>
+				</div>
+					
+			</div>
+			<div class="depart"></div>
+		</div>
+		<div class="bottom-space">
+			<p><a href="" style="display: block;padding:15px;">下拉刷新更多...</a></p>
+		</div>
+	</div>
+</div>
+	
+	<!-- 底部固定导航栏 -->
+	<div class="navbar navbar-default navbar-fixed-bottom nav-justified">
+	    <div class="container">
+				<ul class="nav navbar-nav">
+					<li ><a href="#"><img class="smicon1" src="../imgs/个人中心.png" alt=""><br>首页</a></li>
+					<li><a href="#"><img class="smicon2" src="../imgs/课程.png" alt=""><br>&nbsp课程</a></li>
+					<li><a href="#"><img class="add" src="../imgs/个人中心_45.png" alt=""><br></a></li>
+					<li><a href="#"><img class="smicon3" src="../imgs/消息.png" alt=""><br>消息</a></li>
+					<li><a href="#"><img class="smicon3" src="../imgs/我的.png" alt=""><br>我的</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script>
+	new Vue({
+		el:'.main',
+		data:{
+			videos:[
+				{
+					url:'',
+					title:'我不会钢琴，不会吉他，不会清歌，不会热舞，但我也是有喜爱的，我愿意为了我最喜欢的卡农，而去学会一切相关的美好的事物。',
+					video:'../imgs/xihumeijing.mp4',
+					
+				},{
+					url:'',
+					title:'十年前，所有人都在听周杰伦，你也跟着听却总是唱不对歌词；五年前，所有人都在听五月天，你却想不明白到底什么叫他们说的摇滚。',
+					video:'../imgs/xihumeijing.mp4',
+					
+				},{
+					url:'',
+					title:'我不会钢琴，不会吉他，不会清歌，不会热舞，但我也是有喜爱的，我愿意为了我最喜欢的卡农，而去学会一切相关的美好的事物。',
+					video:'../imgs/xihumeijing.mp4',
+					
+				},{
+					url:'',
+					title:'十年前，所有人都在听周杰伦，你也跟着听却总是唱不对歌词；五年前，所有人都在听五月天，你却想不明白到底什么叫他们说的摇滚。',
+					video:'../imgs/xihumeijing.mp4',
+				},
+			]
+		}
+	})
+</script>
+</html>

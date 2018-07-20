@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>土豪送福利</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<style>
+	body{
+		background: #ffd42d ;
+		font-family: 'PingFangSC Light','宋体','楷体','SimSon';
+	}
+	.floatBtn{
+		width:50px;
+		height:50px;
+		background: url('../imgs/floatBtn.png') no-repeat;
+		background-size: 50px 50px;
+		position: fixed;
+		right:-20px;
+		top:160px;
+		transition:right 1s;
+		-moz-transition:right 1s; /* Firefox 4 */
+		-webkit-transition:right 1s; /* Safari and Chrome */
+		-o-transition:right 1s; /* Opera */
+		cursor:pointer;
+		z-index: 99;
+	}
+	.badge{
+		background-color: red;
+	}
+	.floatBtn:hover{
+		right:0px;
+	}
+	.main{
+		width:100%;
+		height:auto;
+		padding:0 10px;
+	}
+	.goodsItem{
+		margin:5px 0;
+	}
+	.goodsItem>div{
+		padding:5px 10px;
+		border-radius: 10px;
+		background: rgba(255,253,232,0.95);
+	}
+	img.goodsImg-sm{
+		width:80%;
+		margin:5% 10%;
+	}
+	.percent{
+		height:20px;
+		margin:10px 0 0;
+	}
+	.line{
+		max-width:100%;
+		height:10px;
+		margin:5px 0;
+		border-radius: 5px;
+	}
+	.outer{
+		background: #f2e7e5;
+	}
+	.inner{
+		background: #ff5f27;
+		width:50%;
+	}
+	p{
+		line-height: 24px;
+	}
+	.col-xs-6, .col-sm-6, .col-md-3, .col-lg-3{
+		padding: 0 5px;
+	}
+	.progress{
+		height:8px;
+	}
+</style>
+<body>
+	<div class="header">
+		<img src="../imgs/banner.png" alt="" width="100%">
+		<a href="./myTickets.html"><div class="floatBtn"><span class="badge">3</span></div></a>
+	</div>
+	<div class="main">
+		<div class="goodsItem col-xs-6 col-sm-6 col-md-3 col-lg-3"  v-for="item in goods">
+			<div>
+				<a :href="item.url">
+					<img :src="item.img" alt="奖品" class="goodsImg-sm">
+			        <div class="progress">
+					  <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+					    <span class="sr-only">60% Complete (warning)</span>
+					  </div>
+					</div>
+				</a>
+					<p style="text-align: center;">{{item.title}}</p>	
+			</div>
+		</div>
+		
+	</div>
+	<div class="footer"></div>
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script>
+	new Vue({
+		el:'.main',
+		data:{
+			goods:[
+				{
+					url:'./details.html?id=1',
+					title:'梦中人极限入耳式耳机',
+					img:'../imgs/goods-sm.png'
+				},{
+					url:'./details.html?id=2',
+					title:'请叫我光头阿彬',
+					img:'../imgs/goods-sm.png'
+				},{
+					url:'./details.html?id=3',
+					title:'我就是帅锅',
+					img:'../imgs/goods-sm.png'
+				},{
+					url:'./details.html?id=4',
+					title:'梦中人极限入耳式耳机',
+					img:'../imgs/goods-sm.png'
+				},
+				{
+					id:5,
+					title:'梦中人极限入耳式耳机',
+					img:'../imgs/goods-sm.png'
+				},{
+					id:6,
+					title:'请叫我光头阿彬',
+					img:'../imgs/goods-sm.png'
+				},{
+					id:7,
+					title:'我就是帅锅',
+					img:'../imgs/goods-sm.png'
+				},{
+					id:8,
+					title:'梦中人极限入耳式耳机',
+					img:'../imgs/goods-sm.png'
+				},
+			]
+		}
+	})
+</script>
+</html>
