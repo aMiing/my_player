@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员登录</title>
+</head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap/fonts/glyphicons-halflings-regular.ttf">
+<style>
+	.box{
+		height:60%;
+		box-shadow: 1px 1px 5px #6bf;
+		margin:15% 25%;
+
+	}
+	.form-box{
+		margin:30px;
+	}
+	label{
+		font-size: 18px;
+	}
+	.title{
+		font-weight: 600;
+		color:#6bf;
+		font-size: 30px;
+		padding:10px 5px 20px 10px;
+	}
+	.title>i{
+		font-size: 46px;
+	}
+	.submit{
+		width:100%;
+		padding:20px 0;
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="container">
+		<div class="box col-lg-5">
+			<div class="title"><i>天天开奖</i>&nbsp;&nbsp;后台管理系统</div>
+			<div class="form-box">
+				<form class="form-horizontal" action="index.html?username">
+					<div class="form-group has-feedback">
+						<label class="col-sm-3 control-label">用户名：</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="text" name="username" placeholder="请输入您的用户名">
+						</div>
+					</div>
+					<div class="form-group has-feedback">
+						<label class="col-sm-3 control-label">密码：</label>
+						<div class="col-sm-8">
+							<input class="form-control" type="password" name="password" placeholder="请输入您的密码">
+						</div>
+					</div>
+					<div class="login-tip"></div>
+					<div class="submit">
+						 <input type="submit" @click="submit()" class="btn btn-info btn-lg"  value=" 登 录 " />
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../jquery/jquery-1.9.1.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script src="../VueJs/Vue-resource.js"></script>
+<script>
+	new Vue({
+		el:'.contain-box',
+		data:{
+			info:{
+				name:'',
+				psd:''
+			}
+		},
+		created:function(){
+			
+		},
+		methods:{
+			submit:function(){
+				var url = '';
+				var name =
+				this.$http.get(url).then(function(res){
+					this.info = res.body.data;
+				},function(res){
+					alert("z"+res.status);
+				});
+				if(this.info.name == )
+			}
+		}
+	})
+	$(function(){
+		$('.submit').click(function(){
+			if
+		})
+	})
+</script>
+</html>
