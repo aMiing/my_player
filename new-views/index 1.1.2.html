@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>乐器分享</title>
+	<title>乐器分享1.1.2</title>
 </head>
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
 	body{
-		background-image: url("../imgs/1-background.png");
+		/* background-image: url("../imgs/1-background.png"); */
 		background-size:100% auto;
 		font-family: 'PingFangSC Light','华文细黑','楷体';
 	}
@@ -28,7 +28,9 @@
 		height:94%;
 		overflow: scroll;
 	}
-	.btn{
+
+	/* 搜索框架 */
+	.btn-search{
 		height: 34px;
 		border: 0px;
 		border-radius: 15px;
@@ -69,6 +71,25 @@
 	a{
 		color:#777;
 	}
+	/* 滑动按钮 */
+	.btn-group{
+		border:1px solid red;
+		margin: 10px 30px 0 30px;
+	}
+	ul.nav-btn-group{
+		width: 100%;
+		height:35px;
+		overflow: hidden;
+	}
+	.nav-btn-group>li{
+		float: left;
+		overflow: hidden;
+	}
+	.btn-move{
+		background: white;
+		border-color:rgb(122, 122, 122); 
+	}
+	/* 主要内容 */
 	.main{
 		margin-left:15px;
 		margin-right:5px;
@@ -175,7 +196,7 @@
 			<div class="col-md-6 col-xs-10">
 				<div class="input-group">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button"><img src="../imgs/newrsearch.png" style="width:14px;" alt=""></button>
+						<button class="btn btn-search btn-default" type="button"><img src="../imgs/newrsearch.png" style="width:14px;" alt=""></button>
 					</span>
 					<input type="text" class="form-control" placeholder="每个人都是音乐家">
 				</div>
@@ -195,6 +216,14 @@
 
 			<div class="col-md-3 col-xs-1"></div>
 		</div>
+		<div class="btn-group">
+			<ul class="nav nav-btn-group" >
+				<li><button class="btn btn-move btn-default" type="submit">弦乐器</button></li>
+				<li><button class="btn btn-move btn-default" type="submit">管乐器</button></li>
+				<li><button class="btn btn-move btn-default" type="submit">弦乐器</button></li>
+				<li><button class="btn btn-move btn-default" type="submit">管乐器</button></li>
+			</ul>
+	    </div>
 	<!-- 中间主要内容 -->
 	<div class="main">
 		<h1>热门视频</h1>
@@ -212,9 +241,9 @@
 					<!-- <span class="glyphicon glyphicon-comment " aria-hidden="true">300</span>&nbsp
 					<span class="glyphicon glyphicon-heart" aria-hidden="true">456</span>&nbsp
 					<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">567</span> -->
-					<span class="right"><img class="activeicon2" src="../imgs/点赞.png" alt="">567</span>
-					<span class="right"><img class="activeicon2" src="../imgs/喜欢.png" alt="">456</span>
-					<span class="right" ><img class="activeicon1" src="../imgs/留言.png" alt="">300</span>
+					<span class="right"><img class="activeicon2" src="../imgs/good.png" alt="">567</span>
+					<span class="right"><img class="activeicon2" src="../imgs/like.png" alt="">456</span>
+					<span class="right" ><img class="activeicon1" src="../imgs/talk.png" alt="">300</span>
 				</div>
 					
 			</div>
@@ -241,20 +270,20 @@
 			</div>
 			</div> -->
 				<ul class="nav navbar-nav col-lg-5 col-lg-push-4 col-md-6 col-md-push-3" style="padding-right:0px">
-					<li><a href="#"><img class="smicon1" src="../imgs/个人中心.png" alt=""><br>首页</a></li>
-					<li><a href="#"><img class="smicon2" src="../imgs/课程.png" alt=""><br>&nbsp课程</a></li>
-					<li><a href="#"><img class="add" src="../imgs/个人中心_45.png" alt=""><br></a></li>
-					<li><a href="#"><img class="smicon3" src="../imgs/消息.png" alt=""><br>消息</a></li>
-					<li><a href="#"><img class="smicon3" src="../imgs/我的.png" alt=""><br>我的</a></li>
+					<li><a href="#"><img class="smicon1" src="../imgs/center.png" alt=""><br>首页</a></li>
+					<li><a href="#"><img class="smicon2" src="../imgs/class.png" alt=""><br>&nbsp课程</a></li>
+					<li><a href="#"><img class="add" src="../imgs/addnew.png" alt=""><br></a></li>
+					<li><a href="#"><img class="smicon3" src="../imgs/news.png" alt=""><br>消息</a></li>
+					<li><a href="#"><img class="smicon3" src="../imgs/my.png" alt=""><br>我的</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	
 </body>
-<script src="../jquery/jquery-1.9.1.min.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-<script src="../VueJs/Vue.v2.5.16.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 	new Vue({
 		el:'.main',

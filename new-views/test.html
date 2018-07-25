@@ -1,19 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="../iconfont/iconfont.css">
 <style>
-	#triangle {
-    height: 0;
-    width: 0;
-    border-right: 70px solid red;
-    border-bottom: 50px solid transparent;
-    border-left: 50px solid transparent;
-}
+    body{
+        width: 100%;
+        overflow: hidden;
+    }
+    #btn-group{
+        /* width: 100%; */
+        overflow-x:scroll;
+		/* border:1px solid red; */
+		margin: 50px 30px 0 30px;
+		overflow-y: hidden;
+	}
+	.nav-btn-group{
+		width: 135%;
+		height:50px;
+		/* overflow: hidden; */
+	}
+	.nav-btn-group>li{
+		float: left;
+	}
+    .btn-move{
+		width: 130px;
+		height: 50px;
+		color:white;
+		border:none;
+		border-radius: 0;
+	}
+    #move1{
+		background-image: url("../imgs/XianYueqi.jpg");
+		background-size:100% auto;
+	}
+	#move2{
+		margin-left: 15px;
+		background-image: url("../imgs/GuanYueqi.jpg");
+		background-size:100% auto;
+	}
+	#move3{
+		margin-left: 15px;
+		background-image: url("../imgs/XianYueqi.jpg");
+		background-size:100% auto;
+	}
 </style>
 <body>
-	<div id="triangle"></div>
+    <div id="btn-group">
+        <ul class="nav nav-btn-group" >
+            <li><button id="move1" class="btn btn-move btn-default" type="submit"><i class="iconfont icon-yinle-leqi-music-instrume" style="font-size:30px"></i>弦乐器</button></li>
+            <li><button id="move2" class="btn btn-move btn-default" type="submit"><i class="iconfont icon-yinle-leqi-music-instrume2" style="font-size:30px"></i>管乐器</button></li>
+            <li><button id="move3" class="btn btn-move btn-default" type="submit"><i class="iconfont icon-yinle-leqi-music-instrume1" style="font-size:30px"></i>弦乐器</button></li>
+        </ul>
+    </div>
 </body>
 </html>
